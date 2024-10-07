@@ -41,7 +41,171 @@
 </head>
 
 <body>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Intrinsic - Product Pillars">
+    <title>Intrinsic - Product Pillars</title>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        @media screen and (max-width: 600px) {
+            body {
+                margin: 10px;
+            }
+        }
+        h3 {
+            color: #000;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding-block: 2px;
+        }
+        h1 {
+            color: #000;
+            font-size: 2.5em;
+            font-weight: bold;
+            padding-block: 2px;
+        }
+        li {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
     <h3>Product Pillars</h3>
+    
+    <h1>What do you need to bring Trust & Safety into the AI era?</h1>
+
+    <p>You need simple and flexible data primitives to support complex workflows across multiple industries without building custom solutions every time.</p>
+
+    <p>In order to do so, Intrinsic distills down the data needed to solve anti-abuse problems to three core primitives:</p>
+
+    <ul>
+        <li><strong>Events</strong> are data Intrinsic receives. Every event has a name, a timestamp, and some properties defined through the Intrinsic platform. They are simple and flexible, providing a way to describe any content, user behavior, or metadata that arrives at Intrinsic through a stream. For example, an event can represent a marketplace listing that contains an image, a user ID, a description, and an IP address.</li>
+        <li><strong>Entities</strong> are identifiers that enable tracking objects across events. Entities can represent specific users, group chats, or even device identifiers and IP addresses. Entities are correlated to each other through a graph, with linkages being defined through their co-occurrence in shared events.</li>
+        <li><strong>Actions</strong> are customizable automations that enable Intrinsic to interact with an external system. For instance, in response to a specific policy decision, Intrinsic can send a webhook that bans that specific user.</li>
+    </ul>
+
+    <p>For engineers, their story starts at feeding data into Intrinsic through a single line of code and ends with processing any downstream action. Everything else is self-contained and managed within Intrinsic. This provides future-proofing: all data needed to deal with future threats already exists within Intrinsic, and empowers policy writers to have a self-serve experience for anti-abuse.</p>
+
+    <h3>You need a well-structured data infrastructure to ensure that AI agents can quickly retrieve the relevant context to make a decision</h3>
+
+    <p>Intrinsic manages "functions". For example, a content moderator looking at a piece of content X1, with context X2 and returning decision Y is content_moderator(X1, X2) = Y.</p>
+
+    <p>Pre-LLMs, those functions were just simple rules, simple classifiers, or human content moderators.</p>
+
+    <p>Rules can take in population-level context (how is the rest of the user base behaving right now), time-level context (how has this user behaved in the past 30 minutes), and specific attributes of the content it is looking at.</p>
+
+    <p>Rule(X_population_context, X_time_context, X) = Y</p>
+
+    <p>However, they are not capable of complex reasoning or cannot power sophisticated logic.</p>
+
+    <p>Simple classifiers usually only take into account the content they are looking at. A good example is a classifier returning a nudity score on an image it is evaluating.</p>
+
+    <p>Classifier(X) = Y</p>
+
+    <p>Simple classifiers cannot look at content in context, nor population or time-level context. They also cannot take into account a company's policies.</p>
+
+    <p>Human moderators usually take into account the content they are looking at, in context, population context, time context, and a deeper understanding of evolving policies.</p>
+
+    <p>Human(X_population_context, X_time_context, X_context, policies, X) = Y</p>
+
+    <p>However, humans have biases, limited cultural context, lack consistency, and do not scale.</p>
+
+    <p>But the advent of LLMs has added a new dimension to this stack that can replace humans:</p>
+
+    <p>Large language models can take in all the variables a human can, including policies.</p>
+
+    <p>LLM(X_population_context, X_time_context, X_context, policies, X) = Y</p>
+
+    <p>To bring these workflows to LLMs, Intrinsic has built the real-time data infrastructure to support all contextual knowledge needed to drive a decision:</p>
+
+    <ol>
+        <li><strong>Population context:</strong> Computing broader violation trends and anomalies in entities and policy violations, to, for instance, factor in a recent 10x surge in illegal content in the past 30 minutes.</li>
+        <li><strong>Time context:</strong> Stateful counters such as count-min sketch support real-time aggregation of queries such as "How many times has this IP address and device identifier been seen in the past five seconds?"</li>
+        <li><strong>Content context with Point Lookups:</strong> Bloom filters can rapidly scan and extract specific entity identifiers from billions of events. This enables the rapid stitching of entities, so you can retrieve both an article's content as well as a reply from a single event.</li>
+        <li><strong>Embedding-based retrievals:</strong> Relevant gray-area enforcements of specific policies improve performance when dealing with challenging moderations.</li>
+    </ol>
+
+    <p>Only once you have built an efficient knowledge retrieval engine for LLMs can you truly replace humans. This is the only way to scale LLMs.</p>
+
+    <h3>You need an industry-specific platform to allow non-technical Trust & Safety experts to easily provide the contextual information that an AI agent needs to make accurate and nuanced decisions</h3>
+
+    <p>We knew we needed to build a bridge between existing processes needed to manage teams of human moderators to managing AI agents. We've done so by supporting policies, decisioning logic, actions, dashboards, and review queues as first-class citizens.</p>
+
+    <ul>
+        <li><strong>Policies</strong> are plain-English guidelines for what content or behavior is permitted or not. We provide a familiar Google Docs-like experience that allows policy writers to directly write their product guidelines, and have Intrinsic enforce them at scale. We provide all the tools to draft, improve, and test their policies. A few sentences can close coverage gaps and tackle new abuse patterns.</li>
+        <li><strong>Decisioning Logic:</strong> All existing decisioning logic can be defined within Intrinsic through an easy-to-use user interface. Intrinsic supports the backtesting of both traditional rules (blocklists, pattern matching, and counters) and policy-aligned detections, allowing operators to understand exactly what the impact of changing anti-abuse logic will be before deploying.</li>
+        <li><strong>Actions</strong> can be fully customized from Intrinsic to map to any existing Trust & Safety intervention as applied to any entity. They can include banning users, removing posts, or issuing strikes against users. New actions can be onboarded in minutes directly on the platform without requiring additional integration work.</li>
+        <li><strong>Dashboards</strong> are immediately bootstrapped to show a bird's-eye view of a platform's Trust & Safety health.</li>
+        <li><strong>Review Queues:</strong> Existing review workflows can be directly moved over to Intrinsic while providing the ability to transition from human to AI automation.</li>
+    </ul>
+
+    <h3>You need world-class observability and experimentation tooling to keep up with the dynamic nature of online abuse</h3>
+
+    <p>"There's something probably going wrong here, and the worst part is we don't know what might be wrong."</p>
+
+    <p>Bad actors thrive when Trust & Safety teams are hamstrung by data silos and have to go through other teams to get the data they need to do their jobs. By centralizing all detections, enforcements, and actions end-to-end in Intrinsic, for the first time, for many teams, we are able to have a bird's-eye view of how abuse is occurring in a single bootstrapped dashboard, and to operationalize on those insights.</p>
+
+    <p>As all content is indexed and embedded as it flows through Intrinsic, Intrinsic is able to support semantic querying of all content, and elevate such intelligence with LLMs with human-level reasoning. Such semantic querying allows for plain-text queries like, "show me all users posting about political assassinations," and Intrinsic being able to retrieve the top policy-breaking users that a threat analyst should look at. Then, Intrinsic provides a way to directly issue bans and remove content directly from the platform, which turns a tedious game of managing spreadsheets into a highly interactive video game-like experience.</p>
+
+    <p>Once emerging or new threats are identified, proactive mitigations can be shipped in less than 15 minutes. The entire workflow of evolving anti-abuse logic, from policy and rule creation, experimentation, backtesting to final deployment is supported directly in Intrinsic.</p>
+
+    <h3>The things we say no to…</h3>
+
+    <p>What Intrinsic will be:</p>
+    <ul>
+        <li>Intrinsic will be extremely easy to put data in</li>
+        <li>Intrinsic will be able to easily interface with any external systems</li>
+        <li>Intrinsic will be easy to understand by non-technical non-AI-savvy Trust & Safety experts</li>
+        <li>Intrinsic's simple primitives will enable feature parity with existing internal workflows</li>
+        <li>Intrinsic will be reliable, robust, and secure</li>
+        <li>Intrinsic will be deterministic and consistent</li>
+        <li>Anything that Intrinsic has ever seen or done will be indexed and searchable</li>
+    </ul>
+
+    <p>What Intrinsic will not be:</p>
+    <ul>
+        <li>Intrinsic will not assume a policy is invariant, therefore will never support one-size-fits-all classifiers</li>
+        <li>Intrinsic will not build an interface for engineers to programmatically edit the decisioning logic</li>
+        <li>Intrinsic will not differentiate on workflow features that are optimized for humans</li>
+        <li>Intrinsic will not become a BPO</li>
+        <li>Intrinsic will not support fine-tuning small specialized classifiers, as they exist as a transition technology and will be fully replaced by generalized models in the next five years</li>
+    </ul>
+
+    <h3>The things we say yes to…</h3>
+
+    <p>Implementing these simple pillars allowed us to say "yes, Intrinsic can do that" to almost 95% of customer requests, from customers across vastly different industries. We have an easier time proving feature parity with whatever DIY-tool/complex operation they have going internally and sell a move to Intrinsic, than any other vendors in the space.</p>
+
+    <h3>To conclude…</h3>
+
+    <p>No matter the industry, all customers have the same workflow. They all need to:</p>
+    <ol>
+        <li>Define what abuse means on their platform</li>
+        <li>Detect abuse as it occurs</li>
+        <li>Take action on the abuse</li>
+        <li>Investigate the abuse after it has occurred</li>
+    </ol>
+
+    <p>Intrinsic is the only holistic solution on the market that can support all four. And the whole is greater than the sum of its parts.</p>
+
+    <p>For instance:</p>
+    <ul>
+        <li>Since Intrinsic owns the definition of abuse, it can detect abuse with more nuance, and drive better detections</li>
+        <li>Since Intrinsic tracks customer entities' states (i.e., this user has been banned previously) and owns the enforcement (action), it can support more powerful actioning and more effective interventions</li>
+        <li>Since Intrinsic observes all decisions, users can write better policies, which can drive better detections, and better interventions</li>
+    </ul>
+
+    <p>And much more… </p>
+</body>
+</html>
 
 </body>
 </html>
