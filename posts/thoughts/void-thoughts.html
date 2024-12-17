@@ -3,90 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>void-thoughts.txt</title>
+    <title>ok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter/3.19.3/inter.css">
     <style>
-        /* Same styles as above */
         :root {
-            --text: #2d2d2d;
-            --bg: #fafafa;
-            --accent: #666;
-            --hover: #000;
+            --text: #1a1a1a;
+            --bg: #ffffff;
+            --subtle: #737373;
+            --hover: #000000;
         }
 
         body {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            max-width: 650px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+            max-width: 680px;
             margin: 0 auto;
-            padding: 2rem;
-            line-height: 1.5;
+            padding: 3rem 2rem;
+            line-height: 1.6;
             color: var(--text);
             background-color: var(--bg);
+            font-size: 15px;
+            letter-spacing: -0.01em;
         }
 
         header {
-            margin-bottom: 3rem;
-        }
-
-        .path {
-            color: var(--accent);
-            margin-bottom: 2rem;
-        }
-
-        .path::before {
-            content: "$ pwd\n";
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 {
-            font-size: 1rem;
-            font-weight: normal;
+            margin-bottom: 6rem;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+            align-items: baseline;
         }
 
         .date {
-            color: var(--accent);
-            margin: 1rem 0 2rem;
+            color: var(--subtle);
+            font-variant-numeric: tabular-nums;
+            font-size: 14px;
         }
 
-        .date::before {
-            content: "# ";
+        h1 {
+            font-size: 15px;
+            font-weight: 400;
+            margin: 0;
         }
 
-        p {
-            margin-bottom: 1.5rem;
+        nav {
+            margin-top: 8rem;
+            color: var(--subtle);
         }
 
         a {
-            color: var(--text);
+            color: inherit;
             text-decoration: none;
-            border-bottom: 1px solid var(--accent);
         }
 
         a:hover {
             color: var(--hover);
-            border-bottom-color: var(--hover);
+        }
+
+        article {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+        }
+
+        .content {
+            max-width: 560px;
+        }
+
+        .content p {
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .meta {
+            position: sticky;
+            top: 3rem;
+            align-self: start;
+        }
+
+        .category {
+            color: var(--subtle);
+            font-size: 14px;
+            margin-bottom: 1rem;
         }
 
         .back {
-            margin-top: 3rem;
-            display: block;
+            color: var(--subtle);
+            font-size: 14px;
+            position: fixed;
+            bottom: 3rem;
+            left: 2rem;
         }
 
-        .back::before {
-            content: "← ";
-            color: var(--accent);
+        @media (max-width: 600px) {
+            body {
+                padding: 2rem 1.5rem;
+            }
+
+            header, article {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .meta {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            .back {
+                position: static;
+                display: block;
+                margin-top: 4rem;
+            }
+        }
+
+        ::selection {
+            background: var(--text);
+            color: var(--bg);
         }
     </style>
 </head>
 <body>
-    <div class="path">~/posts/thoughts/void-thoughts.txt</div>
-    
-    <article>
-        <h1>void thoughts()</h1>
-        <div class="date">16.12.24</div>
-        <p>thoughts</p>
-    </article>
+    <a href="../.." class="back">← index</a>
 
-    <a href="../../index.html" class="back">cd ..</a>
+    <header>
+        <div class="date">16.12.24</div>
+        <h1>On Form</h1>
+    </header>
+
+    <article>
+        <div class="meta">
+            <div class="category">thoughts</div>
+        </div>
+
+        <div class="content">
+            <p>what remains is not just essential, but inevitable</p>
+        </div>
+    </article>
 </body>
 </html>
