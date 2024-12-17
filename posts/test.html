@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>void-thoughts.txt</title>
+    <style>
+        /* Same styles as above */
+        :root {
+            --text: #2d2d2d;
+            --bg: #fafafa;
+            --accent: #666;
+            --hover: #000;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.5;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
+        .path {
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .path::before {
+            content: "$ pwd\n";
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .date {
+            color: var(--accent);
+            margin: 1rem 0 2rem;
+        }
+
+        .date::before {
+            content: "# ";
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        a:hover {
+            color: var(--hover);
+            border-bottom-color: var(--hover);
+        }
+
+        .back {
+            margin-top: 3rem;
+            display: block;
+        }
+
+        .back::before {
+            content: "← ";
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="path">~/posts/thoughts/void-thoughts.txt</div>
+    
+    <article>
+        <h1>void thoughts()</h1>
+        <div class="date">16.12.24</div>
+        <p>thoughts</p>
+    </article>
+
+    <a href="../../index.html" class="back">cd ..</a>
+</body>
+</html>
